@@ -53,9 +53,11 @@ It is important to make sure you have all these tools installed and configured c
 
 1. Install the required software listed in the "Required programs" and "Project links" sections.
 
+
 2. Make sure you have Docker Desktop turned on.
 
-3. Start MongoDB and create the database:
+
+3. Start MongoDB and create the database. (If you use Docker skip that point.)
  - Open a terminal and start the MongoDB server:
  ```sh
  - mongod

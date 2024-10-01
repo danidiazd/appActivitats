@@ -44,7 +44,7 @@ Es importante asegurarse de tener todas estas herramientas instaladas y configur
 
 2. Asegúrese de tener Docker Desktop encendido.
 
-3. Abra MongoDB y cree la base de datos:
+3. Abra MongoDB y cree la base de datos: (Si usa Docker, omita este punto.)
    - Abra una terminal y inicie el servidor MongoDB:
    ```sh
    mongod
