@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "2dc24425-1dc2-4c65-a683-70ae0a8d7c31",
+		"name": "appActivitats",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33829380"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Pepe\",\r\n  \"lastName\": \"Lopez\",\r\n  \"email\": \"pepe2@hotmail.es\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"userId\",\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"email\": \"john.doe@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/users/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"users",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/users/36f33864-90dc-421c-a7e1-1d388e38d99e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"users",
+								"36f33864-90dc-421c-a7e1-1d388e38d99e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Activitys",
+			"item": [
+				{
+					"name": "ADD ALL ACTIVITIES",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"nameActivity\": \"Sessió de Ioga\",\r\n    \"description\": \"Classe de ioga per relaxar-se i estirar els músculs.\",\r\n    \"maxCapacity\": 20\r\n  },\r\n  {\r\n    \"nameActivity\": \"Taller de cuina\",\r\n    \"description\": \"Aprendre a cuinar plats mediterranis.\",\r\n    \"maxCapacity\": 15\r\n  },\r\n  {\r\n    \"nameActivity\": \"Curs de fotografia\",\r\n    \"description\": \"Taller per millorar les teves habilitats de fotografia.\",\r\n    \"maxCapacity\": 10\r\n  },\r\n  {\r\n    \"nameActivity\": \"Escalada en roca\",\r\n    \"description\": \"Activitat d'escalada en un mur d'escalada interior.\",\r\n    \"maxCapacity\": 12\r\n  },\r\n  {\r\n    \"nameActivity\": \"Sessió de meditació\",\r\n    \"description\": \"Sessió guiada de meditació per a la pau interior.\",\r\n    \"maxCapacity\": 30\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/addActivities",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"addActivities"
+							]
+						},
+						"description": "Create a activity"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Activity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nameActivity\": \"Clase Yoga\",\r\n  \"description\": \"Classe de ioga per relaxar-se i estirar els músculs.\",\r\n  \"maxCapacity\": 20  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/activities",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"activities"
+							]
+						},
+						"description": "Create a activity"
+					},
+					"response": []
+				},
+				{
+					"name": "Add User to Activity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/activities/66f9aec30c33ec30a3453775/users/66f9aaf5be88386bf1c1a368",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"activities",
+								"66f9aec30c33ec30a3453775",
+								"users",
+								"66f9aaf5be88386bf1c1a368"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Activity",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"activityId\",\r\n  \"nameActivity\": \"Nuevo nombre actividad\",\r\n  \"description\": \"Nueva description\",\r\n  \"maxCapacity\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/activities/66f9a42ebe88386bf1c1a367",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"activities",
+								"66f9a42ebe88386bf1c1a367"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Activity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/activities/66f9ba9ed4f2885005fb49a6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"activities",
+								"66f9ba9ed4f2885005fb49a6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Activitys",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users from Activity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/activities/{id}/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"activities",
+								"{id}",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Activity",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/activities/66f9a42ebe88386bf1c1a367",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"activities",
+								"66f9a42ebe88386bf1c1a367"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
