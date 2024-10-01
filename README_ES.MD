@@ -69,7 +69,7 @@ Es importante asegurarse de tener todas estas herramientas instaladas y configur
     ```
 5. Navegue hasta el directorio del proyecto:
    ```sh
-   cd appActivitats
+    cd appActivitats\appActivitats\
    ```
 ##### 6. Procedimiento con Gradle
 1. Compile el proyecto:
@@ -91,10 +91,18 @@ Es importante asegurarse de tener todas estas herramientas instaladas y configur
     ```
    
  ##### 6. Procedimiento con Docker
-1. Contruye la imagen con Docker compose:
- ```sh
- docker-compose up --build
- ```
+1. Construya el proyecto:
+   ```sh
+   gradle build
+   ```
+   Si está utilizando Windows PowerShell o Linux, puede usar el siguiente comando:
+   ```sh
+    ./gradlew build
+    ```
+2. Contruye la imagen con Docker compose:
+    ```sh
+    docker-compose up --build
+    ```
    
 7. Abra su navegador y navegue hasta [Swagger](http://localhost:8080/swagger) para ver la documentación de la API.
 8. Utilice Postman para probar los puntos finales de la API.

@@ -82,33 +82,41 @@ It is important to make sure you have all these tools installed and configured c
     ```
 5. Navigate into the project directory:
    ```sh
-   cd appActivitats
+   cd appActivitats\appActivitats\
    ```
       ##### Procedure with Gradle
          
-6. Build the project:
-   ```sh
-   gradle build
-   ```
-   if you are using Windows, you can use the following command:
-   ```sh
-    ./gradlew build
-   ```
-      1. Run the project:
-   ```sh
-   gradle bootRun
-   ```
-   if you are using Windows PowerShell, Linux you can use the following command:
-   ```sh
-    ./gradlew bootRun
-   ```
+   6. Build the project:
+      ```sh
+      gradle build
+      ```
+      if you are using Windows, you can use the following command:
+      ```sh
+       ./gradlew build
+      ```
+         1. Run the project:
+      ```sh
+      gradle bootRun
+      ```
+      if you are using Windows PowerShell, Linux you can use the following command:
+      ```sh
+       ./gradlew bootRun
+      ```
    
-   ##### Procedure with Docker
-            
-   1. Build and run the Docker compose file:
+      ##### Procedure with Docker
+      1. Build the project:
          ```sh
-           docker-compose up --build
-         ```
+          gradle build
+          ```
+       if you are using Windows PowerShell or Linux, you can use the following command:
+       ```sh
+        ./gradlew build
+        ```
+
+      2. Build and run the Docker compose file:
+            ```sh
+              docker-compose up --build
+            ```
 
 7. Open your browser and navigate to [Swagger](http://localhost:8080/swagger) to view the API documentation.
 
