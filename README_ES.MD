@@ -10,6 +10,8 @@
     1. [Programas requeridos](#programas-requeridos)
     2. [Project links](#project-links)
     3. [Procedimiento](#procedimiento)
+        1. [Procedimiento con Gradle](#procedimiento-con-gradle)
+        2. [Procedimiento con Docker](#procedimiento-con-docker)
 
 <hr>
 
@@ -25,8 +27,8 @@ Este proyecto proporciona servicios de API REST para gestionar usuarios y activi
 #### Programas requeridos
 Es importante asegurarse de tener todas estas herramientas instaladas y configuradas correctamente antes de comenzar a trabajar en el proyecto.
 
-- **Java SE Development Kit 11 or higher**
-- **Gradle 6.0 or higher**
+- **Java SE Development Kit 21**
+- **Gradle .0 or higher**
 - **IntelliJ IDEA 2024.1.4 (or any other preferred IDE)**
 - **Docker**
 - **Postman**
@@ -34,8 +36,8 @@ Es importante asegurarse de tener todas estas herramientas instaladas y configur
 
 #### Project links
 
-- [GitHub](https://github.com/danidiazd/appActivitats-PruebaHackaton).  El codigo fuente.
-- [Swagger](http://localhost:8080/swagger-ui.html). API documentación.
+- [GitHub](https://github.com/danidiazd/appActivitats).  El codigo fuente.
+- [Swagger](http://localhost:8080/swagger). API documentación.
 
 #### Procedimiento
 1. Instale el software requerido que se encuentra en las secciones "Programas requeridos" y "Enlaces del proyecto".
@@ -63,21 +65,23 @@ Es importante asegurarse de tener todas estas herramientas instaladas y configur
 
 4. Clone el repositorio:
    ```sh
-   git clone https://github.com/danidiazd/appActivitats-PruebaHackaton.git
+   git clone https://github.com/danidiazd/appActivitats.git
     ```
 5. Navegue hasta el directorio del proyecto:
    ```sh
-   cd appActivitats-PruebaHackaton
+   cd appActivitats
    ```
-6. Compile el proyecto:
-   ```sh
-   gradle build
-   ```
-   Si está utilizando Windows, puede usar el siguiente comando:
-   ```sh
-    ./gradlew build
+##### 6. Procedimiento con Gradle
+1. Compile el proyecto:
+
+      ```sh
+      gradle build
+      ```
+      Si está utilizando Windows PowerShell o Linux, puede usar el siguiente comando:
+      ```sh
+       ./gradlew build
     ```
-7. Ejecute el proyecto:
+2. Ejecute el proyecto:
    ```sh
    gradle bootRun
    ```
@@ -86,8 +90,14 @@ Es importante asegurarse de tener todas estas herramientas instaladas y configur
     ./gradlew bootRun
     ```
    
-8. Abra su navegador y navegue hasta [Swagger](http://localhost:8080/swagger-ui.html) para ver la documentación de la API.
-9. Utilice Postman para probar los puntos finales de la API.
+ ##### 6. Procedimiento con Docker
+1. Contruye la imagen con Docker compose:
+ ```sh
+ docker-compose up --build
+ ```
+   
+7. Abra su navegador y navegue hasta [Swagger](http://localhost:8080/swagger) para ver la documentación de la API.
+8. Utilice Postman para probar los puntos finales de la API.
 
 ##### Importe la colección de Postman desde la siguiente ruta:
 

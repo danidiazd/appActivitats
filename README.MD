@@ -10,6 +10,9 @@
     1. [Required programs](#required-programs)
     2. [Project links](#project-links)
     3. [Procedure](#procedure)
+       1.[Procedure with Gradle](#procedure-with-gradle)
+       2.[Procedure with Docker](#procedure-with-docker)
+   
 
 <hr>
 
@@ -33,7 +36,7 @@ This project provides REST API services for managing users and activities. Each 
 
 It is important to make sure you have all these tools installed and configured correctly before you start working on the project.
 
-- **Java SE Development Kit 11 or higher**
+- **Java SE Development Kit 21**
 - **Gradle 6.0 or higher**
 - **IntelliJ IDEA 2024.1.4 (or any other preferred IDE)**
 - **Docker**
@@ -43,8 +46,8 @@ It is important to make sure you have all these tools installed and configured c
 
 #### Project links
 
-- [GitHub](https://github.com/danidiazd/appActivitats-PruebaHackaton). The source code.
-- [Swagger](http://localhost:8080/swagger-ui.html). The API documentation.
+- [GitHub](https://github.com/danidiazd/appActivitats). The source code.
+- [Swagger](http://localhost:8080/swagger). The API documentation.
 
 #### Procedure
 
@@ -75,12 +78,14 @@ It is important to make sure you have all these tools installed and configured c
 
 4. Clone the repository:
    ```sh
-   git clone https://github.com/danidiazd/appActivitats-PruebaHackaton.git
+   git clone https://github.com/danidiazd/appActivitats.git
     ```
 5. Navigate into the project directory:
    ```sh
-   cd appActivitats-PruebaHackaton
+   cd appActivitats
    ```
+      ##### Procedure with Gradle
+         
 6. Build the project:
    ```sh
    gradle build
@@ -88,25 +93,40 @@ It is important to make sure you have all these tools installed and configured c
    if you are using Windows, you can use the following command:
    ```sh
     ./gradlew build
- ```
-7. Run the project:
+   ```
+      1. Run the project:
    ```sh
    gradle bootRun
    ```
-if you are using Windows PowerShell, Linux you can use the following command:
-```sh
+   if you are using Windows PowerShell, Linux you can use the following command:
+   ```sh
     ./gradlew bootRun
- ```
+   ```
    
-8. Open your browser and navigate to [Swagger](http://localhost:8080/swagger-ui.html) to view the API documentation.
-9. Use Postman to test the API endpoints.
+   ##### Procedure with Docker
+            
+   1. Build and run the Docker compose file:
+         ```sh
+           docker-compose up --build
+         ```
+
+7. Open your browser and navigate to [Swagger](http://localhost:8080/swagger) to view the API documentation.
+
+
+8. Use Postman to test the API endpoints.
 
 ##### Import the Postman collection from the following path:
 
 ```sh
     appActivitats/src/main/resources/postman/appActivitats.postman_collection.json
 ```
-10. To stop the project, press `Ctrl + C` in the terminal.
+9. To stop the project, press `Ctrl + C` in the terminal.
+
+
+
+ 
+
+
 
 
 
