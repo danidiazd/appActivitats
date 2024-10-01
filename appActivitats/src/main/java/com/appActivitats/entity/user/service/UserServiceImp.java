@@ -1,7 +1,7 @@
 package com.appActivitats.entity.user.service;
 
-import com.appActivitats.entity.activities.domain.Activity;
-import com.appActivitats.entity.activities.repository.ActivityRepository;
+import com.appActivitats.entity.activity.domain.Activity;
+import com.appActivitats.entity.activity.repository.ActivityRepository;
 import com.appActivitats.entity.user.domain.User;
 import com.appActivitats.entity.user.exception.UserNotFoundException;
 import com.appActivitats.entity.user.repository.UserRepository;

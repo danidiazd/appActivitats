@@ -1,6 +1,6 @@
 package com.appActivitats.activities.exception;
 
-import com.appActivitats.entity.activities.exception.ActivityNotFoundException;
+import com.appActivitats.entity.activity.exception.ActivityNotFoundException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,4 @@
-package com.appActivitats.entity.activities.dto;
+package com.appActivitats.entity.activity.dto;
 
 import com.appActivitats.entity.user.dto.UserDTO;
 import lombok.AllArgsConstructor;

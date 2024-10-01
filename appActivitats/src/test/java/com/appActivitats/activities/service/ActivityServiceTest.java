@@ -1,17 +1,15 @@
 package com.appActivitats.activities.service;
 
-import com.appActivitats.entity.activities.domain.Activity;
-import com.appActivitats.entity.activities.exception.ActivityNotFoundException;
-import com.appActivitats.entity.activities.service.ActivityServiceImp;
+import com.appActivitats.entity.activity.domain.Activity;
+import com.appActivitats.entity.activity.exception.ActivityNotFoundException;
+import com.appActivitats.entity.activity.service.ActivityServiceImp;
 import com.appActivitats.entity.user.domain.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;

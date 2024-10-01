@@ -1,13 +1,12 @@
 package com.appActivitats.activities.repository;
 
-import com.appActivitats.entity.activities.domain.Activity;
-import com.appActivitats.entity.activities.repository.ActivityRepository;
+import com.appActivitats.entity.activity.domain.Activity;
+import com.appActivitats.entity.activity.repository.ActivityRepository;
 import com.appActivitats.entity.user.domain.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
 import java.util.List;
 import java.util.Optional;

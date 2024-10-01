@@ -1,9 +1,9 @@
-package com.appActivitats.entity.activities.controller;
+package com.appActivitats.entity.activity.controller;
 
-import com.appActivitats.entity.activities.domain.Activity;
-import com.appActivitats.entity.activities.dto.ActivityDTO;
-import com.appActivitats.entity.activities.dto.ActivityMapper;
-import com.appActivitats.entity.activities.service.ActivityService;
+import com.appActivitats.entity.activity.domain.Activity;
+import com.appActivitats.entity.activity.dto.ActivityDTO;
+import com.appActivitats.entity.activity.dto.ActivityMapper;
+import com.appActivitats.entity.activity.service.ActivityService;
 import com.appActivitats.entity.user.dto.UserDTO;
 import com.appActivitats.entity.user.dto.UserMapper;
 import com.appActivitats.entity.user.service.UserService;

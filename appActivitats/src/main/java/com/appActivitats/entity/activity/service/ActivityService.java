@@ -1,7 +1,6 @@
-package com.appActivitats.entity.activities.service;
+package com.appActivitats.entity.activity.service;
 
-import com.appActivitats.entity.activities.domain.Activity;
-import com.appActivitats.entity.user.domain.User;
+import com.appActivitats.entity.activity.domain.Activity;
 
 import java.util.List;
 

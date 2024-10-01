@@ -1,6 +1,6 @@
 package com.appActivitats.activities.exception;
 
-import com.appActivitats.entity.activities.exception.NoFreePlacesException;
+import com.appActivitats.entity.activity.exception.NoFreePlacesException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

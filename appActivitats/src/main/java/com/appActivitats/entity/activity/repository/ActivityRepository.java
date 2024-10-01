@@ -1,6 +1,6 @@
-package com.appActivitats.entity.activities.repository;
+package com.appActivitats.entity.activity.repository;
 
-import com.appActivitats.entity.activities.domain.Activity;
+import com.appActivitats.entity.activity.domain.Activity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

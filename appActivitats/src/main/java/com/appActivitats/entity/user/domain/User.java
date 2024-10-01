@@ -1,9 +1,6 @@
 package com.appActivitats.entity.user.domain;
 
-import com.appActivitats.entity.activities.domain.Activity;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.appActivitats.entity.activity.domain.Activity;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;

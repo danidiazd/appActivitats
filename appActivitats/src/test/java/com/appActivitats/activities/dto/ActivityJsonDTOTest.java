@@ -1,6 +1,6 @@
 package com.appActivitats.activities.dto;
 
-import com.appActivitats.entity.activities.dto.ActivityJsonDTO;
+import com.appActivitats.entity.activity.dto.ActivityJsonDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

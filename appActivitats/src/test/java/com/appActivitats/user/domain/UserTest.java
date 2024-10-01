@@ -1,6 +1,6 @@
 package com.appActivitats.user.domain;
 
-import com.appActivitats.entity.activities.domain.Activity;
+import com.appActivitats.entity.activity.domain.Activity;
 import com.appActivitats.entity.user.domain.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

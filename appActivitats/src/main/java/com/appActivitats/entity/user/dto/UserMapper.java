@@ -1,7 +1,7 @@
 package com.appActivitats.entity.user.dto;
 
 import com.appActivitats.entity.user.domain.User;
-import com.appActivitats.entity.activities.domain.Activity;
+import com.appActivitats.entity.activity.domain.Activity;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;

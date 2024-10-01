@@ -1,4 +1,4 @@
-package com.appActivitats.entity.activities.exception;
+package com.appActivitats.entity.activity.exception;
 
 public class ActivityNotFoundException extends RuntimeException {
     public ActivityNotFoundException(String id) {

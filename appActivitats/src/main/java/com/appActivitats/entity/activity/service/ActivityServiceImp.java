@@ -1,9 +1,9 @@
-package com.appActivitats.entity.activities.service;
+package com.appActivitats.entity.activity.service;
 
-import com.appActivitats.entity.activities.domain.Activity;
-import com.appActivitats.entity.activities.dto.ActivityJsonDTO;
-import com.appActivitats.entity.activities.exception.ActivityNotFoundException;
-import com.appActivitats.entity.activities.repository.ActivityRepository;
+import com.appActivitats.entity.activity.domain.Activity;
+import com.appActivitats.entity.activity.dto.ActivityJsonDTO;
+import com.appActivitats.entity.activity.exception.ActivityNotFoundException;
+import com.appActivitats.entity.activity.repository.ActivityRepository;
 import com.appActivitats.entity.user.domain.User;
 import com.appActivitats.entity.user.repository.UserRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;

@@ -1,6 +1,6 @@
-package com.appActivitats.entity.activities.dto;
+package com.appActivitats.entity.activity.dto;
 
-import com.appActivitats.entity.activities.domain.Activity;
+import com.appActivitats.entity.activity.domain.Activity;
 import com.appActivitats.entity.user.dto.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

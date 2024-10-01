@@ -1,6 +1,6 @@
 package com.appActivitats.user.dto;
 
-import com.appActivitats.entity.activities.domain.Activity;
+import com.appActivitats.entity.activity.domain.Activity;
 import com.appActivitats.entity.user.domain.User;
 import com.appActivitats.entity.user.dto.UserDTO;
 import org.junit.jupiter.api.BeforeEach;

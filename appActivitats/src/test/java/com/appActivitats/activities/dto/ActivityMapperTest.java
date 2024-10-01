@@ -1,8 +1,8 @@
 package com.appActivitats.activities.dto;
 
-import com.appActivitats.entity.activities.domain.Activity;
-import com.appActivitats.entity.activities.dto.ActivityDTO;
-import com.appActivitats.entity.activities.dto.ActivityMapper;
+import com.appActivitats.entity.activity.domain.Activity;
+import com.appActivitats.entity.activity.dto.ActivityDTO;
+import com.appActivitats.entity.activity.dto.ActivityMapper;
 import com.appActivitats.entity.user.domain.User;
 import com.appActivitats.entity.user.dto.UserDTO;
 import com.appActivitats.entity.user.dto.UserMapper;
@@ -13,7 +13,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
