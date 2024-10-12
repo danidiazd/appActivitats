@@ -6,6 +6,7 @@ import com.appActivitats.entity.activity.exception.ActivityNotFoundException;
 import com.appActivitats.entity.activity.repository.ActivityRepository;
 import com.appActivitats.entity.user.domain.User;
 import com.appActivitats.entity.user.repository.UserRepository;
+import com.appActivitats.entity.user.service.UserServiceImp;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,12 +19,17 @@ import java.util.Optional;
 @Service
 public class ActivityServiceImp implements ActivityService {
 
-
-    @Autowired
     ActivityRepository activityRepository;
+    UserRepository userRepository;
 
     @Autowired
-    UserRepository userRepository;
+    UserServiceImp userServiceImp;
+
+    @Autowired
+    public ActivityServiceImp(ActivityRepository activityRepository, UserRepository userRepository) {
+        this.activityRepository = activityRepository;
+        this.userRepository = userRepository;
+    }
 
 
     @Override
@@ -34,46 +40,36 @@ public class ActivityServiceImp implements ActivityService {
 
     @Override
     public void updateActivity(String id, Activity activity) {
-        Optional<Activity> activityOptional = activityRepository.findById(activity.getId());
-        if (activityOptional.isPresent()) {
-            Activity activityToUpdate = activityOptional.get();
-            activityToUpdate.setNameActivity(activity.getNameActivity());
-            activityToUpdate.setDescription(activity.getDescription());
-            activityToUpdate.setMaxCapacity(activity.getMaxCapacity());
-            activityToUpdate.setFreePlaces(activity.getFreePlaces());
-            activityRepository.save(activityToUpdate);
-        } else {
-            throw new ActivityNotFoundException("Activity not found");
-        }
+
+        activityRepository.findById(id)
+                .map(activityToUpdate -> {
+                    activityToUpdate.setNameActivity(activity.getNameActivity());
+                    activityToUpdate.setDescription(activity.getDescription());
+                    activityToUpdate.setMaxCapacity(activity.getMaxCapacity());
+                    activityToUpdate.setFreePlaces(activity.getFreePlaces());
+                    return activityRepository.save(activityToUpdate);
+                })
+                .orElseThrow(() -> new ActivityNotFoundException("Activity not found"));
     }
 
     @Override
     public void addUsersToActivity(String id, String userID) {
 
-        Optional<Activity> optionalActivity = activityRepository.findById(id);
-        if (optionalActivity.isEmpty()) {
-            throw new ActivityNotFoundException("Activity not found");
-        }
-
-        Optional<User> optionalUser = userRepository.findByid(userID);
-        if (optionalUser.isEmpty()) {
-            throw new ActivityNotFoundException("User not found");
-        }
-
+        Optional<Activity> optionalActivity = Optional.ofNullable(activityRepository.findById(id).orElseThrow(() -> new ActivityNotFoundException("Activity not found")));
+        Optional<User> optionalUser = Optional.ofNullable(userRepository.findById(userID).orElseThrow(() -> new ActivityNotFoundException("User not found")));
         Activity activity = optionalActivity.get();
         User user = optionalUser.get();
-        activity.getUsers().add(user);
+        activity.addUser(user);
         activityRepository.save(activity);
+        user.addActivity(activity);
+        userServiceImp.addActivityToUser(userID, activity.getNameActivity());
+
     }
 
     @Override
     public void deleteActivity(String id) {
-        Optional<Activity> activityOptional = activityRepository.findById(id);
-        if (activityOptional.isPresent()) {
-            activityRepository.delete(activityOptional.get());
-        } else {
-            throw new ActivityNotFoundException("Activity not found");
-        }
+        Activity activity = activityRepository.findById(id).orElseThrow(() -> new ActivityNotFoundException("Activity not found"));
+        activityRepository.delete(activity);
 
     }
 
@@ -83,7 +79,8 @@ public class ActivityServiceImp implements ActivityService {
         ObjectMapper objectMapper = new ObjectMapper();
         List<ActivityJsonDTO> activityJsonDTOList = null;
         try {
-            activityJsonDTOList = objectMapper.readValue(json, new TypeReference<List<ActivityJsonDTO>>() {});
+            activityJsonDTOList = objectMapper.readValue(json, new TypeReference<List<ActivityJsonDTO>>() {
+            });
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

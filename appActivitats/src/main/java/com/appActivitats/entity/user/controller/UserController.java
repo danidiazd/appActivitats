@@ -4,6 +4,7 @@ import com.appActivitats.entity.user.dto.UserDTO;
 import com.appActivitats.entity.user.dto.UserMapper;
 import com.appActivitats.entity.user.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,9 @@ public class UserController {
 
     @Operation(summary = "Register a new user", description = "Register a new user.")
     @PostMapping("/user")
+    @ApiResponse(responseCode = "200", description = "User registered")
+    @ApiResponse(responseCode = "400", description = "User already exists")
+    @ApiResponse(responseCode = "400", description = "Invalid parameters")
     public ResponseEntity<UserDTO> registerUser(@RequestBody UserDTO userDTO) {
         userService.registerUser(userMapper.toEntity(userDTO));
         return ResponseEntity.ok(userDTO);
@@ -35,7 +39,6 @@ public class UserController {
     @Operation(summary = "Update a user", description = "Update a user.")
     @PutMapping("/users/{id}")
     public ResponseEntity<UserDTO> updateUser(@PathVariable String id, @RequestBody UserDTO userDTO) {
-        userDTO.setId(id);
         userService.updateUser(id, userMapper.toEntity(userDTO));
         return ResponseEntity.ok(userDTO);
     }

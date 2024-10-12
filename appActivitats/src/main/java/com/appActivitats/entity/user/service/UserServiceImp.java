@@ -3,6 +3,7 @@ package com.appActivitats.entity.user.service;
 import com.appActivitats.entity.activity.domain.Activity;
 import com.appActivitats.entity.activity.repository.ActivityRepository;
 import com.appActivitats.entity.user.domain.User;
+import com.appActivitats.entity.user.exception.UserAlredyExistException;
 import com.appActivitats.entity.user.exception.UserNotFoundException;
 import com.appActivitats.entity.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,19 +21,22 @@ public class UserServiceImp implements UserService {
 
     private static final Logger log = Logger.getLogger(UserServiceImp.class.getName());
 
-    @Autowired
     private UserRepository userRepository;
+    private ActivityRepository activityRepository;
 
     @Autowired
-    private ActivityRepository activityRepository;
+    public UserServiceImp(UserRepository userRepository, ActivityRepository activityRepository) {
+        this.userRepository = userRepository;
+        this.activityRepository = activityRepository;
+    }
 
 
     @Override
     public void registerUser(User user) {
-        Optional<User> existingUser = userRepository.findByEmail(user.getEmail());
-        if (existingUser.isPresent()) {
-            throw new IllegalArgumentException("User already exists");
-        }
+            Optional<User> existingUser = userRepository.findByEmail(user.getEmail());
+            if (existingUser.isPresent()) {
+                throw new UserAlredyExistException("User already exists");
+            }
         userRepository.save(user);
         log.log(Level.INFO, "User created: {0}", user.getFullName());
     }
@@ -41,34 +46,30 @@ public class UserServiceImp implements UserService {
 
         User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
         Activity activity = activityRepository.findByNameActivity(nameActivity).orElseThrow(() -> new IllegalArgumentException("Activity not Found"));
-
-        user.getActivities().add(activity);
+        user.addActivity(activity);
         userRepository.save(user);
     }
 
     @Override
-public void updateUser(String id, User user) {
-    Optional<User> userOptional = userRepository.findById(id);
-    if (userOptional.isPresent()) {
-        User userToUpdate = userOptional.get();
-        userToUpdate.setFirstName(user.getFirstName());
-        userToUpdate.setLastName(user.getLastName());
-        userToUpdate.setEmail(user.getEmail());
-        userToUpdate.setRegistrationDate(user.getRegistrationDate());
-        userRepository.save(userToUpdate);
-        log.log(Level.INFO, "User updated: {0}", userToUpdate.getFullName());
-    } else {
-        throw new UserNotFoundException(id);
+    public void updateUser(String id, User user) {
+
+        userRepository.findById(id)
+                .map(userToUpdate -> {
+                    userToUpdate.setFirstName(user.getFirstName());
+                    userToUpdate.setLastName(user.getLastName());
+                    userToUpdate.setEmail(user.getEmail());
+                    userToUpdate.setRegistrationDate(user.getRegistrationDate());
+                    log.log(Level.INFO, "User updated: {0}", userToUpdate.getFullName());
+                    return userRepository.save(userToUpdate);
+                })
+                .orElseThrow(() -> new UserNotFoundException(id));
     }
-}
 
     @Override
     public void deleteUser(String id) {
-        Optional<User> userOptional = userRepository.findById(id);
-        if (userOptional.isPresent()) {
-            userRepository.delete(userOptional.get());
-            log.log(Level.INFO, "User deleted: {0}", userOptional.get().getFullName());
-        }
+        User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
+        userRepository.delete(user);
+        log.log(Level.INFO, "User deleted: {0}", user.getFullName());
     }
 
     @Override

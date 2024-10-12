@@ -31,7 +31,7 @@ public class Activity {
 
 
     public void addUser(User user) {
-        this.freePlaces--;
+        setFreePlaces(getFreePlaces() - 1);
         this.users.add(user);
     }
 }

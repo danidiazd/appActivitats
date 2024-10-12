@@ -1,11 +1,13 @@
 package com.appActivitats.entity.user.dto;
 
+import com.appActivitats.entity.activity.domain.Activity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -17,5 +19,6 @@ public class UserDTO {
     private String firstName;
     private String lastName;
     private String email;
-    private List<String> activityNames;
+    private Set<String> activityNames = new HashSet<>();
+
 }

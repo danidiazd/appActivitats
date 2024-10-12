@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Getter
@@ -25,10 +26,7 @@ public class UserMapper {
         userDTO.setEmail(user.getEmail());
 
         userDTO.setActivityNames(user.getActivities().stream()
-            .filter(activity -> activity != null)
-            .map(Activity::getNameActivity)
-            .collect(Collectors.toList()));
-
+                .collect(Collectors.toSet()));
         return userDTO;
     }
 
@@ -39,17 +37,16 @@ public class UserMapper {
 
         User user = new User();
         user.setId(userDTO.getId());
+        if (user.getId() == null) {
+            user.setId(UUID.randomUUID().toString());
+        }
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
         user.setEmail(userDTO.getEmail());
-
         user.setActivities(userDTO.getActivityNames().stream()
-            .map(activityName -> {
-                Activity activity = new Activity();
-                activity.setNameActivity(activityName);
-                return activity;
-            })
-            .collect(Collectors.toSet()));
+                .collect(Collectors.toSet()));
+
+
 
         return user;
     }

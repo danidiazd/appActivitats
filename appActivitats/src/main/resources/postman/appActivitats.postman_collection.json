@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"firstName\": \"Pepe\",\r\n  \"lastName\": \"Lopez\",\r\n  \"email\": \"pepe2@hotmail.es\"\r\n}",
+							"raw": "{\r\n  \"firstName\": \"Pepe\",\r\n  \"lastName\": \"Lopez\",\r\n  \"email\": \"pepe@hotmail.es\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -72,7 +72,20 @@
 					"name": "Get User",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/users/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"users",
+								"{id}"
+							]
+						}
 					},
 					"response": []
 				},
@@ -188,7 +201,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/appActivitats/activities/66f9aec30c33ec30a3453775/users/66f9aaf5be88386bf1c1a368",
+							"raw": "http://localhost:8080/appActivitats/activities/670ac1b622c50c2bb6759770/users/84273630-afe8-46e5-afb3-1ef3ff4c4733",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -197,9 +210,9 @@
 							"path": [
 								"appActivitats",
 								"activities",
-								"66f9aec30c33ec30a3453775",
+								"670ac1b622c50c2bb6759770",
 								"users",
-								"66f9aaf5be88386bf1c1a368"
+								"84273630-afe8-46e5-afb3-1ef3ff4c4733"
 							]
 						}
 					},
@@ -212,7 +225,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": \"activityId\",\r\n  \"nameActivity\": \"Nuevo nombre actividad\",\r\n  \"description\": \"Nueva description\",\r\n  \"maxCapacity\": 100\r\n}",
+							"raw": "{\r\n  \"id\": \"66f9a42ebe88386bf1c1a367\",\r\n  \"nameActivity\": \"Nuevo nombre actividad\",\r\n  \"description\": \"Nueva description\",\r\n  \"maxCapacity\": 100\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -260,7 +273,19 @@
 					"name": "Get All Activitys",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/activities",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"activities"
+							]
+						}
 					},
 					"response": []
 				},
@@ -270,7 +295,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/appActivitats/activities/{id}/users",
+							"raw": "http://localhost:8080/appActivitats/activities/670ac1b622c50c2bb6759770/users",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -279,7 +304,7 @@
 							"path": [
 								"appActivitats",
 								"activities",
-								"{id}",
+								"670ac1b622c50c2bb6759770",
 								"users"
 							]
 						}

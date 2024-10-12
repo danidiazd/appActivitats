@@ -21,5 +21,4 @@ public class ActivityDTO {
     private int freePlaces;
     private Set<UserDTO> users;
 
-
 }

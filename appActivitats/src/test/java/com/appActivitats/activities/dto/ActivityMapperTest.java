@@ -41,7 +41,6 @@ class ActivityMapperTest {
         user.setEmail("dani@test.com");
 
         userDTO = new UserDTO();
-        userDTO.setId("1");
         userDTO.setFirstName("Dani");
         userDTO.setLastName("Diaz");
         userDTO.setEmail("dani@test.com");
